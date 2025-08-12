@@ -1,6 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct coordinate_compression
+{
+private:
+    vector<int> init;
+
+    void compress(vector<int> &v)
+    {
+        sort(v.begin(), v.end());                     // sort the vector
+        v.erase(unique(v.begin(), v.end()), v.end()); // remove duplicates
+    }
+
+public:
+    coordinate_compression(vector<int> &arr)
+    {
+        init = arr;     // store the original vector
+        compress(init); // compress the vector
+    }
+
+    int index(int val)
+    {
+        return lower_bound(init.begin(), init.end(), val) - init.begin();
+    }
+
+    int initialVal(int idx)
+    {
+        return init[idx];
+    }
+};
+
 signed main()
 {
 
