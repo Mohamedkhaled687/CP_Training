@@ -18,6 +18,7 @@ using namespace std;
    ay1 + b * (x1 - floor(a/b)) = gcd(a, b) ---> 4
 
    from this equation, we can derive the values of x and y using back substitution.
+   Complexity is O(log(min(a, b)))
 
 */
 
